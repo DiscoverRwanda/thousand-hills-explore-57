@@ -28,7 +28,7 @@ export const galleryImages = [
   {
     id: '3',
     title: 'Traditional Dance Performance',
-    location: 'Iby'Iwacu Cultural Village',
+    location: 'Iby\'Iwacu Cultural Village',
     category: 'culture',
     description: 'Intore dancers performing traditional Rwandan dance, showcasing the country's rich cultural heritage through music, dance, and colorful costumes.',
     imageUrl: 'https://images.unsplash.com/photo-1566149190185-1e5ecc66a184',
