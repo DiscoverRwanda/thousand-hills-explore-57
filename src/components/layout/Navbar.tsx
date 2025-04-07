@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, User } from 'lucide-react';
@@ -92,12 +93,12 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'}`}>
       {/* Primary Navigation */}
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <span className={`font-serif text-2xl font-bold ${scrolled ? 'text-rwanda-green' : 'text-white'}`}>
+            <span className="font-serif text-2xl font-bold text-gray-800">
               Discover Rwanda
             </span>
           </Link>
@@ -108,7 +109,7 @@ const Navbar: React.FC = () => {
               <Link 
                 key={link.name}
                 to={link.path}
-                className={`${scrolled ? 'text-gray-800' : 'text-white'} font-medium hover:text-rwanda-green transition-colors ${location.pathname === link.path ? 'border-b-2 border-rwanda-green' : ''}`}
+                className={`text-gray-800 font-medium hover:text-rwanda-green transition-colors ${location.pathname === link.path ? 'border-b-2 border-rwanda-green' : ''}`}
               >
                 {link.name}
               </Link>
@@ -127,7 +128,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <User className="h-5 w-5" />
                   )}
-                  <span className={`${scrolled ? 'text-gray-800' : 'text-white'}`}>Profile</span>
+                  <span className="text-gray-800">Profile</span>
                 </Button>
               </Link>
             ) : (
@@ -145,22 +146,22 @@ const Navbar: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className={`h-6 w-6 ${scrolled ? 'text-gray-800' : 'text-white'}`} />
+              <X className="h-6 w-6 text-gray-800" />
             ) : (
-              <Menu className={`h-6 w-6 ${scrolled ? 'text-gray-800' : 'text-white'}`} />
+              <Menu className="h-6 w-6 text-gray-800" />
             )}
           </button>
         </div>
       </div>
 
       {/* Secondary Navigation - only visible on desktop when not scrolled or when scrolled with background */}
-      <div className={`w-full bg-gray-50 border-b border-gray-200 ${scrolled ? 'block' : 'lg:block hidden'}`}>
+      <div className="w-full bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="hidden lg:flex justify-center space-x-6 py-2">
             {secondaryLinks.map((link) => (
               <div key={link.name} className="relative group">
                 <div 
-                  className={`text-gray-700 font-medium cursor-pointer flex items-center gap-1`}
+                  className="text-gray-700 font-medium cursor-pointer flex items-center gap-1"
                 >
                   <Link to={link.path}>{link.name}</Link>
                   {link.dropdownItems && (

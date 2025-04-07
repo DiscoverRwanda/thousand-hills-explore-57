@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import DetailHero from '@/components/shared/DetailHero';
 import ImageGallery from '@/components/shared/ImageGallery';
 import MapLocation from '@/components/shared/MapLocation';
+import { EventBooking } from '@/components/events/EventBooking';
 import { format, parseISO } from 'date-fns';
 
 // Mock data for an event
@@ -31,7 +32,7 @@ const mockEvent = {
   },
   organizer: 'Rwanda Development Board',
   ticketInfo: {
-    general: 'Free for general access',
+    general: 'RWF 5,000 for general access',
     vip: 'RWF 50,000 for VIP seating'
   },
   schedule: [
@@ -131,40 +132,27 @@ const EventDetails: React.FC = () => {
           
           {/* Sidebar */}
           <div className="lg:w-1/3 space-y-6">
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="p-4 bg-gray-50 border-b border-gray-200">
-                <h3 className="font-bold text-lg">Event Information</h3>
-              </div>
-              <div className="p-4 space-y-4">
-                <div>
-                  <h4 className="font-medium text-gray-700">Date & Time</h4>
-                  <p>{formattedDate}</p>
-                  <p>{startTime} - {endTime}</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-700">Ticket Information</h4>
-                  <p>General Entry: {event.ticketInfo.general}</p>
-                  <p>VIP Access: {event.ticketInfo.vip}</p>
-                </div>
-                <div className="pt-2">
-                  <Button className="w-full bg-rwanda-green hover:bg-rwanda-darkGreen">
-                    Book Tickets
-                  </Button>
-                </div>
-                <div className="pt-2">
-                  <Button variant="outline" className="w-full flex items-center justify-center">
-                    <Share2 className="mr-2 h-4 w-4" />
-                    Share Event
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <EventBooking 
+              eventId={event.id}
+              eventName={event.title}
+              eventDate={event.date}
+              ticketInfo={event.ticketInfo}
+            />
             
             <MapLocation 
               title={event.title}
               address={event.location.address}
               coordinates={event.location.coordinates}
             />
+            
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-4">
+                <Button variant="outline" className="w-full flex items-center justify-center">
+                  <Share2 className="mr-2 h-4 w-4" />
+                  Share Event
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
         
