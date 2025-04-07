@@ -23,6 +23,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import TravelTips from "./pages/TravelTips";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
             <Route path="/plan" element={<Plan />} />
             <Route path="/plan/itinerary-builder" element={<ItineraryBuilder />} />
             <Route path="/plan/itinerary/:id" element={<ItineraryDetails />} />
+            <Route path="/plan/travel-tips" element={<TravelTips />} />
             
             {/* Blog */}
             <Route path="/blog" element={<Blog />} />
