@@ -19,7 +19,7 @@ const featuredExperiences = [
   {
     image: 'https://images.unsplash.com/photo-1516939977171-9181a2dc1e6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     title: 'Cultural Heritage',
-    description: 'Immerse yourself in Rwanda's rich traditions with village visits, traditional dance performances, and artisan workshops.',
+    description: 'Immerse yourself in Rwanda\'s rich traditions with village visits, traditional dance performances, and artisan workshops.',
     link: '/attractions/cultural-heritage'
   },
   {
@@ -34,7 +34,7 @@ const upcomingEvents = [
   {
     image: 'https://images.unsplash.com/photo-1516571748332-f19761b5c880?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     title: 'Kwita Izina',
-    description: 'The annual Gorilla Naming Ceremony, a celebration of Rwanda's conservation efforts and cultural heritage.',
+    description: 'The annual Gorilla Naming Ceremony, a celebration of Rwanda\'s conservation efforts and cultural heritage.',
     link: '/events/kwita-izina'
   },
   {
@@ -46,7 +46,7 @@ const upcomingEvents = [
   {
     image: 'https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     title: 'Umuganura Festival',
-    description: 'A traditional harvest thanksgiving festival celebrating Rwanda's agricultural achievements and cultural unity.',
+    description: 'A traditional harvest thanksgiving festival celebrating Rwanda\'s agricultural achievements and cultural unity.',
     link: '/events/umuganura-festival'
   }
 ];

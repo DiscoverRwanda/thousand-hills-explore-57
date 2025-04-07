@@ -32,7 +32,7 @@ const attractions = [
   {
     id: 3,
     name: 'Lake Kivu',
-    description: 'One of Africa's Great Lakes offering beautiful beaches, boat tours, and water sports in a serene setting.',
+    description: 'One of Africa\'s Great Lakes offering beautiful beaches, boat tours, and water sports in a serene setting.',
     image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Western Province',
     category: 'natural',
@@ -42,7 +42,7 @@ const attractions = [
   {
     id: 4,
     name: 'Kigali Genocide Memorial',
-    description: 'A place of remembrance and learning about Rwanda's tragic history and remarkable journey of reconciliation.',
+    description: 'A place of remembrance and learning about Rwanda\'s tragic history and remarkable journey of reconciliation.',
     image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Kigali',
     category: 'cultural',
@@ -52,7 +52,7 @@ const attractions = [
   {
     id: 5,
     name: 'Ethnographic Museum',
-    description: 'Explore Rwanda's cultural heritage through traditional artifacts, art, and historical exhibits.',
+    description: 'Explore Rwanda\'s cultural heritage through traditional artifacts, art, and historical exhibits.',
     image: 'https://images.unsplash.com/photo-1516939977171-9181a2dc1e6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Huye',
     category: 'cultural',
@@ -81,7 +81,7 @@ const attractions = [
   },
   {
     id: 8,
-    name: 'King's Palace Museum',
+    name: 'King\'s Palace Museum',
     description: 'Historical royal residence showcasing traditional Rwandan monarchy and cultural practices.',
     image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Southern Province',
