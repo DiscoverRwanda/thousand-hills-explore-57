@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, Clock, ArrowLeft, Calendar, Heart } from 'lucide-react';
@@ -140,7 +139,12 @@ const AttractionDetails: React.FC = () => {
               </ul>
             </div>
             
-            <ReviewSection reviews={attraction.reviews} averageRating={4.7} />
+            <ReviewSection 
+              reviews={attraction.reviews} 
+              averageRating={4.7} 
+              serviceId={attraction.id}
+              serviceType="attraction"
+            />
           </div>
           
           {/* Sidebar */}

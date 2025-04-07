@@ -320,7 +320,12 @@ const StayDetails: React.FC = () => {
             </div>
             
             {activeTab === 'overview' && (
-              <ReviewSection reviews={hotel.reviews} averageRating={4.7} />
+              <ReviewSection 
+                reviews={hotel.reviews} 
+                averageRating={4.7} 
+                serviceId={hotel.id}
+                serviceType="accommodation"
+              />
             )}
           </div>
           

@@ -186,7 +186,12 @@ const DiningDetails: React.FC = () => {
               </div>
             </div>
             
-            <ReviewSection reviews={restaurant.reviews} averageRating={4.7} />
+            <ReviewSection 
+              reviews={restaurant.reviews} 
+              averageRating={4.7} 
+              serviceId={restaurant.id}
+              serviceType="restaurant"
+            />
           </div>
           
           {/* Sidebar */}
