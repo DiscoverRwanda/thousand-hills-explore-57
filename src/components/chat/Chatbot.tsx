@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, X, Minimize, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -24,14 +23,14 @@ const INITIAL_MESSAGES: Message[] = [
 // Mock responses for the chatbot based on keywords
 const BOT_RESPONSES: Record<string, string[]> = {
   'hello': ['Hello! How can I assist with your Rwanda travel plans today?', 'Hi there! Looking to explore Rwanda?'],
-  'hotel': ['We have many great hotels in Rwanda from luxury to budget options. Which city are you planning to visit?', 'Rwanda offers excellent accommodations ranging from 5-star hotels to eco-lodges. What's your preference?'],
+  'hotel': ['We have many great hotels in Rwanda from luxury to budget options. Which city are you planning to visit?', 'Rwanda offers excellent accommodations ranging from 5-star hotels to eco-lodges. What\'s your preference?'],
   'gorilla': ['Gorilla trekking is Rwanda\'s most popular activity! The permits cost $1,500 per person and should be booked months in advance.', 'Rwanda is famous for mountain gorilla trekking in Volcanoes National Park. Would you like to know more about available tours?'],
   'cost': ['Travel costs in Rwanda vary widely. A mid-range budget might be $150-250 per day including accommodation, food, and some activities.', 'Rwanda can be more expensive than neighboring countries. Budget travelers should plan for at least $100/day, while luxury experiences can exceed $500/day.'],
   'food': ['Rwandan cuisine features dishes like Isombe (cassava leaves), Brochettes (grilled meat skewers), and Urwagwa (banana beer). What would you like to try?', 'The food in Rwanda is delicious! You must try traditional dishes at local restaurants in Kigali.'],
   'visa': ['Many visitors can get a visa on arrival or apply online through the Rwanda immigration website for $50.', 'Rwanda offers a 30-day tourist visa that you can apply for online before your trip.'],
   'transportation': ['You can get around Rwanda by private car hire, motorcycle taxi (bodaboda), or public buses for longer routes.', 'Rwanda has well-maintained roads. Most tourists hire a driver or join organized tours to travel between cities.'],
   'weather': ['Rwanda has a temperate tropical highland climate with temperatures between 15-30°C year-round. The dry seasons (June-September and December-February) are best for travel.', 'The weather in Rwanda is pleasant throughout the year due to its elevation, but the dry seasons are best for gorilla trekking.'],
-  'safety': ['Rwanda is considered one of the safest countries in Africa. It's clean, organized, and has low crime rates.', 'Rwanda is very safe for tourists. The country has made remarkable progress and is now one of Africa's safest destinations.'],
+  'safety': ['Rwanda is considered one of the safest countries in Africa. It\'s clean, organized, and has low crime rates.', 'Rwanda is very safe for tourists. The country has made remarkable progress and is now one of Africa\'s safest destinations.'],
 };
 
 const getResponse = (message: string): string => {
