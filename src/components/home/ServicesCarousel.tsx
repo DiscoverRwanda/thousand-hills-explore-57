@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
-import { Shield, Users, Coffee, Mountains, Camera, Utensils, Plane, Hotel } from 'lucide-react';
+import { Shield, Users, Coffee, Mountain, Camera, Utensils, Plane, Hotel } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -29,7 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
 
 const services = [
   {
-    icon: <Mountains className="h-8 w-8 text-rwanda-green" />,
+    icon: <Mountain className="h-8 w-8 text-rwanda-green" />,
     title: "Gorilla Trekking",
     description: "Expert guides lead you through forests to witness endangered mountain gorillas in their natural habitat."
   },
