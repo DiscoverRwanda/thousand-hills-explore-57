@@ -105,7 +105,7 @@ const events = [
 const Events: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedMonth, setSelectedMonth] = useState<string>("");
+  const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   
   const categories = [
@@ -143,7 +143,7 @@ const Events: React.FC = () => {
   const resetFilters = () => {
     setSearchTerm("");
     setSelectedCategories([]);
-    setSelectedMonth("");
+    setSelectedMonth("all");
   };
 
   const filteredEvents = useMemo(() => {
@@ -159,7 +159,7 @@ const Events: React.FC = () => {
         selectedCategories.includes(event.category);
       
       // Month filter
-      const matchesMonth = selectedMonth === "" || 
+      const matchesMonth = selectedMonth === "all" || 
         (event.date && isSameMonth(parseISO(event.date), new Date(2024, parseInt(selectedMonth) - 1, 1)));
       
       return matchesSearch && matchesCategory && matchesMonth;
@@ -210,7 +210,7 @@ const Events: React.FC = () => {
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sticky top-20">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold">Filters</h2>
-                {(selectedCategories.length > 0 || selectedMonth) && (
+                {(selectedCategories.length > 0 || selectedMonth !== "all") && (
                   <Button 
                     variant="ghost" 
                     className="text-gray-500 hover:text-gray-700 p-0 h-auto"
@@ -254,7 +254,7 @@ const Events: React.FC = () => {
                       <SelectValue placeholder="Select month" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Months</SelectItem>
+                      <SelectItem value="all">All Months</SelectItem>
                       {months.map((month) => (
                         <SelectItem key={month.value} value={month.value}>
                           {month.label}
@@ -335,7 +335,7 @@ const Events: React.FC = () => {
                         <SelectValue placeholder="Select month" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Months</SelectItem>
+                        <SelectItem value="all">All Months</SelectItem>
                         {months.map((month) => (
                           <SelectItem key={month.value} value={month.value}>
                             {month.label}
