@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { MapPin, Clock, ArrowLeft, Calendar, Heart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useParams } from 'react-router-dom';
 import DetailHero from '@/components/shared/DetailHero';
-import ImageGallery from '@/components/shared/ImageGallery';
-import ReviewSection from '@/components/shared/ReviewSection';
-import MapLocation from '@/components/shared/MapLocation';
+import AttractionMainContent from '@/components/attractions/AttractionMainContent';
+import AttractionSidebar from '@/components/attractions/AttractionSidebar';
+import RelatedAttractions from '@/components/attractions/RelatedAttractions';
 
 // Mock data for an attraction
 const mockAttraction = {
@@ -103,113 +101,14 @@ const AttractionDetails: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
-          <div className="lg:w-2/3">
-            <div className="mb-6">
-              <Link to="/attractions" className="inline-flex items-center text-rwanda-green hover:underline mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Attractions
-              </Link>
-              
-              <div className="flex flex-wrap gap-4 mb-6">
-                <div className="flex items-center text-gray-600">
-                  <MapPin className="w-5 h-5 mr-2 text-rwanda-green" />
-                  <span>{attraction.location.name}</span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Clock className="w-5 h-5 mr-2 text-rwanda-green" />
-                  <span>{attraction.openingHours.monFri}</span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Calendar className="w-5 h-5 mr-2 text-rwanda-green" />
-                  <span>Best time: {attraction.bestTimeToVisit}</span>
-                </div>
-              </div>
-              
-              <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: attraction.description }} />
-            </div>
-            
-            <ImageGallery images={attraction.images} />
-            
-            <div className="my-8">
-              <h2 className="text-2xl font-bold mb-4">Visitor Tips</h2>
-              <ul className="list-disc pl-5 space-y-2">
-                {attraction.tips.map((tip, index) => (
-                  <li key={index} className="text-gray-700">{tip}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <ReviewSection 
-              reviews={attraction.reviews} 
-              averageRating={4.7} 
-              serviceId={attraction.id}
-              serviceType="attraction"
-            />
-          </div>
+          <AttractionMainContent attraction={attraction} />
           
           {/* Sidebar */}
-          <div className="lg:w-1/3 space-y-6">
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="p-4 bg-gray-50 border-b border-gray-200">
-                <h3 className="font-bold text-lg">Visit Information</h3>
-              </div>
-              <div className="p-4 space-y-4">
-                <div>
-                  <h4 className="font-medium text-gray-700">Opening Hours</h4>
-                  <p>Monday-Friday: {attraction.openingHours.monFri}</p>
-                  <p>Weekends: {attraction.openingHours.satSun}</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-700">Admission</h4>
-                  <p>International Visitors: {attraction.priceRange.foreigners}</p>
-                  <p>Rwandan Citizens: {attraction.priceRange.citizens}</p>
-                </div>
-                <div className="pt-2">
-                  <Button className="w-full bg-rwanda-green hover:bg-rwanda-darkGreen">
-                    Book Experience
-                  </Button>
-                </div>
-                <div className="pt-2">
-                  <Button variant="outline" className="w-full flex items-center justify-center">
-                    <Heart className="mr-2 h-4 w-4" />
-                    Add to Favorites
-                  </Button>
-                </div>
-              </div>
-            </div>
-            
-            <MapLocation 
-              title={attraction.title}
-              address={attraction.location.address}
-              coordinates={attraction.location.coordinates}
-            />
-          </div>
+          <AttractionSidebar attraction={attraction} />
         </div>
         
         {/* Related Attractions */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-6">You Might Also Like</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {attraction.relatedAttractions.map((related) => (
-              <Link to={`/attractions/${related.id}`} key={related.id} className="group">
-                <div className="rounded-lg overflow-hidden shadow-md h-full">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={related.imageUrl} 
-                      alt={related.title} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg group-hover:text-rwanda-green transition-colors">
-                      {related.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <RelatedAttractions attractions={attraction.relatedAttractions} />
       </div>
     </div>
   );
