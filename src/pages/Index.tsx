@@ -5,6 +5,7 @@ import FeaturedSection from '@/components/home/FeaturedSection';
 import DestinationSection from '@/components/home/DestinationSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
 import TestimonialSection from '@/components/home/TestimonialSection';
+import ServicesCarousel from '@/components/home/ServicesCarousel';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -118,6 +119,9 @@ const Index: React.FC = () => {
         buttonText="Plan Your Trip"
         buttonLink="/plan"
       />
+      
+      {/* Services Carousel - New Component */}
+      <ServicesCarousel />
       
       <section className="bg-white py-12">
         <div className="container mx-auto px-4 text-center">

@@ -11,6 +11,7 @@ import Attractions from "./pages/Attractions";
 import AttractionDetails from "./pages/AttractionDetails";
 import Events from "./pages/Events";
 import EventDetails from "./pages/EventDetails";
+import EventsCalendar from "./pages/EventsCalendar";
 import Dining from "./pages/Dining";
 import DiningDetails from "./pages/DiningDetails";
 import Stay from "./pages/Stay";
@@ -43,6 +44,7 @@ const App = () => (
             {/* Events */}
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventDetails />} />
+            <Route path="/events/calendar" element={<EventsCalendar />} />
             
             {/* Dining */}
             <Route path="/dining" element={<Dining />} />
