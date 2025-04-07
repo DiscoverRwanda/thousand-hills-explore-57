@@ -12,7 +12,7 @@ export const galleryImages = [
     title: 'Mountain Gorillas',
     location: 'Volcanoes National Park',
     category: 'wildlife',
-    description: 'A family of mountain gorillas in their natural habitat in Rwanda's Volcanoes National Park. Rwanda is one of only three countries where these endangered primates can be seen in the wild.',
+    description: 'A family of mountain gorillas in their natural habitat in Rwanda\'s Volcanoes National Park. Rwanda is one of only three countries where these endangered primates can be seen in the wild.',
     imageUrl: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f',
     photographer: 'Wildlife Explorer'
   },
@@ -21,7 +21,7 @@ export const galleryImages = [
     title: 'Kigali Cityscape',
     location: 'Kigali',
     category: 'urban',
-    description: 'A panoramic view of Rwanda's capital city Kigali, known for its cleanliness, safety, and beautiful hillside setting.',
+    description: 'A panoramic view of Rwanda\'s capital city Kigali, known for its cleanliness, safety, and beautiful hillside setting.',
     imageUrl: 'https://images.unsplash.com/photo-1591037644354-faeb56de1b1d',
     photographer: 'Urban Photographer'
   },
@@ -30,7 +30,7 @@ export const galleryImages = [
     title: 'Traditional Dance Performance',
     location: 'Iby\'Iwacu Cultural Village',
     category: 'culture',
-    description: 'Intore dancers performing traditional Rwandan dance, showcasing the country's rich cultural heritage through music, dance, and colorful costumes.',
+    description: 'Intore dancers performing traditional Rwandan dance, showcasing the country\'s rich cultural heritage through music, dance, and colorful costumes.',
     imageUrl: 'https://images.unsplash.com/photo-1566149190185-1e5ecc66a184',
     photographer: 'Cultural Enthusiast'
   },
@@ -39,7 +39,7 @@ export const galleryImages = [
     title: 'Lake Kivu Sunset',
     location: 'Lake Kivu',
     category: 'landscape',
-    description: 'A breathtaking sunset over Lake Kivu, one of Africa's Great Lakes that forms the border between Rwanda and the Democratic Republic of Congo.',
+    description: 'A breathtaking sunset over Lake Kivu, one of Africa\'s Great Lakes that forms the border between Rwanda and the Democratic Republic of Congo.',
     imageUrl: 'https://images.unsplash.com/photo-1523805009345-7448936ea60a',
     photographer: 'Nature Lover'
   },
@@ -48,7 +48,7 @@ export const galleryImages = [
     title: 'Nyungwe Forest Canopy Walk',
     location: 'Nyungwe National Park',
     category: 'adventure',
-    description: 'The famous canopy walkway suspended above Nyungwe Forest, offering visitors a unique perspective of one of Africa's oldest rainforests.',
+    description: 'The famous canopy walkway suspended above Nyungwe Forest, offering visitors a unique perspective of one of Africa\'s oldest rainforests.',
     imageUrl: 'https://images.unsplash.com/photo-1620066786464-1e3122e9e6d9',
     photographer: 'Adventure Seeker'
   },
@@ -57,7 +57,7 @@ export const galleryImages = [
     title: 'Tea Plantations',
     location: 'Gisakura',
     category: 'landscape',
-    description: 'Rwanda's verdant tea plantations are not only an important export crop but also create some of the country's most beautiful landscapes.',
+    description: 'Rwanda\'s verdant tea plantations are not only an important export crop but also create some of the country\'s most beautiful landscapes.',
     imageUrl: 'https://images.unsplash.com/photo-1589305241549-f8dc2f621d03',
     photographer: 'Landscape Artist'
   },
@@ -66,7 +66,7 @@ export const galleryImages = [
     title: 'Akagera Wildlife',
     location: 'Akagera National Park',
     category: 'wildlife',
-    description: 'Elephants roaming freely in Akagera National Park, Rwanda's only savanna park and home to the Big Five.',
+    description: 'Elephants roaming freely in Akagera National Park, Rwanda\'s only savanna park and home to the Big Five.',
     imageUrl: 'https://images.unsplash.com/photo-1516426122078-c23e76319801',
     photographer: 'Safari Photographer'
   },
