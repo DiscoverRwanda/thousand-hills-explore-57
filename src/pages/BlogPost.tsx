@@ -4,13 +4,14 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Share2, Facebook, Twitter, Linkedin, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
+import DetailHero from '@/components/shared/DetailHero';
 
 // Mock data for blog posts (imported from Blog.tsx in a real app)
 const mockBlogPosts = [
   {
     id: '1',
-    title: 'A Gorilla Trekking Experience in Rwanda's Volcanoes National Park',
-    excerpt: 'Follow along with our adventure as we trek through the misty forests of Volcanoes National Park in search of Rwanda's iconic mountain gorillas.',
+    title: "A Gorilla Trekking Experience in Rwanda's Volcanoes National Park",
+    excerpt: "Follow along with our adventure as we trek through the misty forests of Volcanoes National Park in search of Rwanda's iconic mountain gorillas.",
     content: `
       <p>The early morning mist hangs low over the volcanic slopes as we gather at the park headquarters. After a briefing from our guide, we begin our trek through thick bamboo forests, climbing higher into the domain of the endangered mountain gorillas.</p>
       <p>The trek is challenging but rewarding. Our expert trackers lead us through dense vegetation, pointing out fresh signs of gorilla activity. After nearly three hours of hiking, our guide signals us to stop and whispers that the gorilla family is just ahead.</p>
@@ -31,7 +32,7 @@ const mockBlogPosts = [
   },
   {
     id: '2',
-    title: 'Rwanda's Cultural Renaissance: Traditional Arts and Modern Expressions',
+    title: "Rwanda's Cultural Renaissance: Traditional Arts and Modern Expressions",
     excerpt: 'Explore how Rwanda is revitalizing its rich cultural heritage while embracing contemporary artistic expressions.',
     content: `
       <p>In the heart of Kigali, Rwanda's capital, traditional Intore dancers move with precision and grace, their performances narrating stories of courage and celebration. After the dance, we visit a workshop where artisans craft the iconic Agaseke peace baskets, continuing a tradition that has been passed down through generations.</p>
@@ -53,8 +54,8 @@ const mockBlogPosts = [
   },
   {
     id: '3',
-    title: 'The Ultimate Guide to Rwanda's Coffee Trails',
-    excerpt: 'Discover the journey of Rwanda's specialty coffee from fertile volcanic soils to your cup.',
+    title: "The Ultimate Guide to Rwanda's Coffee Trails",
+    excerpt: "Discover the journey of Rwanda's specialty coffee from fertile volcanic soils to your cup.",
     content: `
       <p>The cool morning air carries the earthy aroma of coffee cherries as we join workers at a hillside plantation near Lake Kivu. Here, at an elevation of 1,800 meters, Rwanda's exceptional coffee begins its journey. The rich volcanic soil and ideal climate conditions provide the perfect environment for growing arabica coffee of remarkable quality.</p>
       <p>Over the past two decades, Rwanda has transformed its coffee industry from a producer of ordinary beans to a source of some of the world's most sought-after specialty coffees. This remarkable evolution has been driven by a focus on quality over quantity, investment in washing stations, and training programs for farmers.</p>
@@ -75,8 +76,8 @@ const mockBlogPosts = [
   },
   {
     id: '4',
-    title: 'Hiking the Congo Nile Trail: Rwanda's Hidden Adventure Gem',
-    excerpt: 'Experience the stunning landscapes and welcoming communities along Rwanda's 227 km hiking route.',
+    title: "Hiking the Congo Nile Trail: Rwanda's Hidden Adventure Gem",
+    excerpt: "Experience the stunning landscapes and welcoming communities along Rwanda's 227 km hiking route.",
     content: `
       <p>The morning sun illuminates Lake Kivu's blue waters as we set out on our first day of trekking the Congo Nile Trail. This 227-kilometer route stretches along the lake's eastern shores, passing through rural villages, coffee plantations, and forested hills. Though less known than Rwanda's gorilla treks, this multi-day hike offers an immersive experience of the country's natural beauty and rural life.</p>
       <p>We've chosen to complete a five-day section of the trail, starting from Rubavu (Gisenyi) and heading south. Our guide, Jean-Pierre, explains that the trail's name comes from its position along the Congo-Nile watershed divide—rainwater falling on the western side flows toward the Congo River, while that on the eastern side makes its way to the Nile.</p>
@@ -97,8 +98,8 @@ const mockBlogPosts = [
   },
   {
     id: '5',
-    title: 'Sustainable Tourism in Rwanda: A Model for Conservation',
-    excerpt: 'How Rwanda's high-value, low-impact tourism approach is protecting biodiversity and empowering communities.',
+    title: "Sustainable Tourism in Rwanda: A Model for Conservation",
+    excerpt: "How Rwanda's high-value, low-impact tourism approach is protecting biodiversity and empowering communities.",
     content: `
       <p>The concept of sustainable tourism has found one of its most successful implementations in Rwanda. Standing at the edge of Nyungwe Forest National Park, listening to the distant calls of chimpanzees, I'm struck by how the country has managed to align conservation objectives with tourism development and community benefits.</p>
       <p>Rwanda's approach stands in contrast to mass tourism models. By focusing on high-value, low-impact experiences, the country limits environmental pressure while maximizing economic benefits. The policy of charging premium prices for gorilla permits ($1,500) ensures both exclusivity and substantial revenue for conservation efforts.</p>
@@ -119,8 +120,8 @@ const mockBlogPosts = [
   },
   {
     id: '6',
-    title: 'Rwanda's Vibrant Festival Scene: A Year-Round Celebration',
-    excerpt: 'From traditional ceremonies to modern music festivals, explore Rwanda's dynamic event calendar.',
+    title: "Rwanda's Vibrant Festival Scene: A Year-Round Celebration",
+    excerpt: "From traditional ceremonies to modern music festivals, explore Rwanda's dynamic event calendar.",
     content: `
       <p>The rhythmic beats of traditional drums reverberate through the air as dancers in vibrant costumes perform at the Umuganura Harvest Festival. This ancient celebration, revitalized in modern Rwanda, honors the country's agricultural heritage and gives thanks for a successful harvest. It's just one highlight in Rwanda's diverse and growing festival scene.</p>
       <p>Throughout the year, Rwanda hosts events that showcase its cultural heritage, artistic talents, and contemporary creative energy. The calendar begins with Umuganura in August, followed by the Rwanda Film Festival that brings international and local productions to screens across Kigali.</p>
@@ -186,46 +187,13 @@ const BlogPost: React.FC = () => {
   
   return (
     <div>
-      {/* Hero */}
-      <div className="relative h-[60vh] max-h-[600px] min-h-[400px] w-full overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center z-0" 
-          style={{ backgroundImage: `url(${post.featuredImage})` }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 h-full flex flex-col justify-end pb-16 relative z-10">
-          <div className="mb-4">
-            <span className="inline-block px-4 py-1 bg-rwanda-green text-white rounded-full text-sm uppercase tracking-wide">
-              {post.category}
-            </span>
-          </div>
-          
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl">
-            {post.title}
-          </h1>
-          
-          <div className="flex flex-wrap items-center text-white gap-4">
-            <div className="flex items-center">
-              <img 
-                src={post.author.avatar} 
-                alt={post.author.name}
-                className="w-10 h-10 rounded-full mr-3"
-              />
-              <span>{post.author.name}</span>
-            </div>
-            <div className="flex items-center">
-              <Calendar className="w-4 h-4 mr-2" />
-              <span>{format(parseISO(post.date), 'MMMM d, yyyy')}</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-2" />
-              <span>{post.readTime}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero - Now using the DetailHero component */}
+      <DetailHero
+        title={post.title}
+        imageUrl={post.featuredImage}
+        category={post.category}
+        date={format(parseISO(post.date), 'MMMM d, yyyy')}
+      />
       
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
