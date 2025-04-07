@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 // Primary navigation links
 const primaryLinks = [
@@ -67,6 +69,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { isAuthenticated, user } = useAuth();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   
@@ -115,9 +118,27 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden lg:block">
-            <Button className="bg-rwanda-green hover:bg-rwanda-darkGreen text-white">
-              Plan Your Trip
-            </Button>
+            {isAuthenticated ? (
+              <Link to="/profile">
+                <Button variant="ghost" className="flex items-center gap-2">
+                  {user?.avatar ? (
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                  ) : (
+                    <User className="h-5 w-5" />
+                  )}
+                  <span className={`${scrolled ? 'text-gray-800' : 'text-white'}`}>Profile</span>
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <Button className="bg-rwanda-green hover:bg-rwanda-darkGreen text-white">
+                  Log In
+                </Button>
+              </Link>
+            )}
           </div>
 
           <button
@@ -221,9 +242,20 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="pt-4">
-              <Button className="w-full bg-rwanda-green hover:bg-rwanda-darkGreen text-white">
-                Plan Your Trip
-              </Button>
+              {isAuthenticated ? (
+                <Link to="/profile" onClick={toggleMenu}>
+                  <Button className="w-full flex items-center justify-center gap-2 bg-rwanda-green hover:bg-rwanda-darkGreen text-white">
+                    <User className="h-4 w-4" />
+                    My Profile
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/login" onClick={toggleMenu}>
+                  <Button className="w-full bg-rwanda-green hover:bg-rwanda-darkGreen text-white">
+                    Log In
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
