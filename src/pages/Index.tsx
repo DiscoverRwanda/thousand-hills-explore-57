@@ -1,6 +1,5 @@
-
 import React from 'react';
-import HeroSection from '@/components/home/HeroSection';
+import AutoSlider from '@/components/home/AutoSlider';
 import FeaturedSection from '@/components/home/FeaturedSection';
 import DestinationSection from '@/components/home/DestinationSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
@@ -112,13 +111,7 @@ const testimonials = [
 const Index: React.FC = () => {
   return (
     <div>
-      <HeroSection 
-        backgroundImage="https://images.unsplash.com/photo-1598978575311-22fb84145728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1900&q=80"
-        title="Discover Rwanda: Land of a Thousand Hills"
-        subtitle="Experience breathtaking landscapes, incredible wildlife, and rich cultural heritage in the heart of East Africa."
-        buttonText="Plan Your Trip"
-        buttonLink="/plan"
-      />
+      <AutoSlider />
       
       {/* Services Carousel - New Component */}
       <ServicesCarousel />
