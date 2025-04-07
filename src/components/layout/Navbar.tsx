@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, User } from 'lucide-react';
@@ -10,6 +9,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 const primaryLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -56,8 +56,6 @@ const secondaryLinks = [
     name: 'Plan Your Visit', 
     path: '/plan',
     dropdownItems: [
-      { name: 'Getting Here', path: '/plan/getting-here' },
-      { name: 'Getting Around', path: '/plan/getting-around' },
       { name: 'Travel Tips', path: '/plan/travel-tips' },
       { name: 'Itinerary Builder', path: '/plan/itinerary-builder' },
     ]

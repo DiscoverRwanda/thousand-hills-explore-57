@@ -2,25 +2,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-interface RelatedAttraction {
+interface RelatedRestaurant {
   id: string;
   title: string;
+  category: string;
   imageUrl: string;
-  category?: string;
 }
 
-interface RelatedAttractionsProps {
-  attractions: RelatedAttraction[];
-  linkPrefix?: string;
+interface RelatedRestaurantsProps {
+  restaurants: RelatedRestaurant[];
 }
 
-const RelatedAttractions: React.FC<RelatedAttractionsProps> = ({ attractions, linkPrefix = '/attractions/' }) => {
+const RelatedRestaurants: React.FC<RelatedRestaurantsProps> = ({ restaurants }) => {
   return (
     <div className="mt-16">
       <h2 className="text-2xl font-bold mb-6">You Might Also Like</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {attractions.map((related) => (
-          <Link to={`${linkPrefix}${related.id}`} key={related.id} className="group">
+        {restaurants.map((related) => (
+          <Link to={`/dining/${related.id}`} key={related.id} className="group">
             <div className="rounded-lg overflow-hidden shadow-md h-full">
               <div className="aspect-video overflow-hidden">
                 <img 
@@ -30,9 +29,7 @@ const RelatedAttractions: React.FC<RelatedAttractionsProps> = ({ attractions, li
                 />
               </div>
               <div className="p-4">
-                {related.category && (
-                  <div className="text-rwanda-green text-sm mb-1">{related.category}</div>
-                )}
+                <div className="text-rwanda-green text-sm mb-1">{related.category}</div>
                 <h3 className="font-bold text-lg group-hover:text-rwanda-green transition-colors">
                   {related.title}
                 </h3>
@@ -45,4 +42,4 @@ const RelatedAttractions: React.FC<RelatedAttractionsProps> = ({ attractions, li
   );
 };
 
-export default RelatedAttractions;
+export default RelatedRestaurants;

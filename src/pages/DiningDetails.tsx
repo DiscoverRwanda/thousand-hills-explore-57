@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, Clock, Phone, ArrowLeft, Heart, Star, Utensils, Globe, CreditCard } from 'lucide-react';
@@ -7,6 +6,7 @@ import DetailHero from '@/components/shared/DetailHero';
 import ImageGallery from '@/components/shared/ImageGallery';
 import ReviewSection from '@/components/shared/ReviewSection';
 import MapLocation from '@/components/shared/MapLocation';
+import RelatedAttractions from '@/components/attractions/RelatedAttractions';
 
 // Mock data for a restaurant
 const mockRestaurant = {
@@ -260,30 +260,7 @@ const DiningDetails: React.FC = () => {
         </div>
         
         {/* Related Restaurants */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-6">You Might Also Like</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {restaurant.relatedRestaurants.map((related) => (
-              <Link to={`/dining/${related.id}`} key={related.id} className="group">
-                <div className="rounded-lg overflow-hidden shadow-md h-full">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={related.imageUrl} 
-                      alt={related.title} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <div className="text-rwanda-green text-sm mb-1">{related.category}</div>
-                    <h3 className="font-bold text-lg group-hover:text-rwanda-green transition-colors">
-                      {related.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <RelatedAttractions attractions={restaurant.relatedRestaurants} />
       </div>
     </div>
   );
