@@ -105,7 +105,7 @@ const UserSettings: React.FC<UserSettingsProps> = ({ userData }) => {
                   <Input 
                     id="name" 
                     {...register("name", { required: "Name is required" })} 
-                    error={errors.name?.message}
+                    className={errors.name ? "border-red-500" : ""}
                   />
                   {errors.name && (
                     <p className="text-red-500 text-xs">{errors.name.message?.toString()}</p>
@@ -124,7 +124,7 @@ const UserSettings: React.FC<UserSettingsProps> = ({ userData }) => {
                         message: "Invalid email address"
                       }
                     })} 
-                    error={errors.email?.message}
+                    className={errors.email ? "border-red-500" : ""}
                   />
                   {errors.email && (
                     <p className="text-red-500 text-xs">{errors.email.message?.toString()}</p>

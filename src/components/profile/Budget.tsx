@@ -65,6 +65,11 @@ const Budget: React.FC<BudgetProps> = ({
           <div className="space-y-4">
             {categories.map((category, index) => {
               const categoryPercentage = Math.round((category.spent / category.allocated) * 100);
+              const progressColor = categoryPercentage > 100 
+                ? 'bg-red-500' 
+                : category.color.replace('bg-', '') === 'rwanda-green' 
+                  ? 'bg-rwanda-green'
+                  : category.color;
               
               return (
                 <div key={index}>
@@ -83,14 +88,8 @@ const Budget: React.FC<BudgetProps> = ({
                       categoryPercentage > 100 
                         ? 'bg-red-200' 
                         : 'bg-gray-200'
-                    }`} 
-                    indicatorClassName={
-                      categoryPercentage > 100 
-                        ? 'bg-red-500' 
-                        : category.color.replace('bg-', '') === 'rwanda-green' 
-                          ? 'bg-rwanda-green'
-                          : category.color
-                    }
+                    }`}
+                    indicatorClassName={progressColor}
                   />
                 </div>
               );
