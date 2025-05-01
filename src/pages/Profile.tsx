@@ -8,7 +8,8 @@ import {
   Calendar, 
   Wallet,
   Settings,
-  Bell
+  Bell,
+  MapPin
 } from 'lucide-react';
 
 // Components
@@ -18,6 +19,7 @@ import Bookings from '@/components/profile/Bookings';
 import Budget from '@/components/profile/Budget';
 import PlacesVisited from '@/components/profile/PlacesVisited';
 import UserSettings from '@/components/profile/UserSettings';
+import ProfileTabContent from '@/components/profile/ProfileTabContent';
 
 // Dummy data
 const user = {
@@ -25,7 +27,7 @@ const user = {
   name: 'Michael Johnson',
   email: 'michael.johnson@example.com',
   avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  bio: 'Enthusiastic traveler with a passion for wildlife photography and experiencing diverse cultures. I've visited over 25 countries and Rwanda has been on my bucket list for years.',
+  bio: "Enthusiastic traveler with a passion for wildlife photography and experiencing diverse cultures. I've visited over 25 countries and Rwanda has been on my bucket list for years.",
   location: 'Toronto, Canada',
   language: 'en',
   currency: 'USD',
@@ -87,7 +89,7 @@ const favoritesData = [
     type: 'restaurant' as const,
     imageUrl: 'https://images.unsplash.com/photo-1511081692775-05d0f180a065',
     location: 'Kigali',
-    description: 'Premium coffee shop serving Rwanda's finest coffee beans in a relaxed atmosphere.',
+    description: "Premium coffee shop serving Rwanda's finest coffee beans in a relaxed atmosphere.",
     link: '/dining/bourbon-coffee'
   },
   {
@@ -105,7 +107,7 @@ const favoritesData = [
     type: 'attraction' as const,
     imageUrl: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e',
     location: 'Eastern Province',
-    description: 'Rwanda's only savannah park with elephants, lions, giraffes and more.',
+    description: "Rwanda's only savannah park with elephants, lions, giraffes and more.",
     link: '/attractions/akagera-national-park'
   },
   {
@@ -273,7 +275,7 @@ const placesVisitedData = [
     imageUrl: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e',
     visitDate: 'June 21, 2023',
     rating: 4,
-    notes: 'Great day safari. Saw elephants, zebras, giraffes and hippos. The landscape is diverse with savannah and lakes. Didn't see any lions but still a wonderful experience.'
+    notes: "Great day safari. Saw elephants, zebras, giraffes and hippos. The landscape is diverse with savannah and lakes. Didn't see any lions but still a wonderful experience."
   },
   {
     id: 'place5',
@@ -283,7 +285,7 @@ const placesVisitedData = [
     imageUrl: 'https://images.unsplash.com/photo-1563795876452-c394f2bd8fb9',
     visitDate: 'June 16, 2023',
     rating: 5,
-    notes: 'Deeply moving and educational. Essential visit to understand Rwanda's history and incredible recovery. The memorial is beautifully maintained and the audio guide is excellent.'
+    notes: "Deeply moving and educational. Essential visit to understand Rwanda's history and incredible recovery. The memorial is beautifully maintained and the audio guide is excellent."
   },
   {
     id: 'place6',
@@ -293,7 +295,7 @@ const placesVisitedData = [
     imageUrl: 'https://images.unsplash.com/photo-1542401886-65d6c61db217',
     visitDate: 'Planned for September 14-15, 2023',
     rating: 0,
-    notes: 'Excited to visit for chimpanzee trekking and the canopy walk. Have heard great things about the rainforest biodiversity.'
+    notes: "Excited to visit for chimpanzee trekking and the canopy walk. Have heard great things about the rainforest biodiversity."
   }
 ];
 
@@ -397,34 +399,46 @@ const Profile: React.FC = () => {
             </TabsList>
             
             <TabsContent value="itineraries" className="mt-0">
-              <Itineraries itineraries={itinerariesData} />
+              <ProfileTabContent active={selectedTab === "itineraries"}>
+                <Itineraries itineraries={itinerariesData} />
+              </ProfileTabContent>
             </TabsContent>
             
             <TabsContent value="favorites" className="mt-0">
-              <Favorites favorites={favoritesData} />
+              <ProfileTabContent active={selectedTab === "favorites"}>
+                <Favorites favorites={favoritesData} />
+              </ProfileTabContent>
             </TabsContent>
             
             <TabsContent value="bookings" className="mt-0">
-              <Bookings bookings={bookingsData} />
+              <ProfileTabContent active={selectedTab === "bookings"}>
+                <Bookings bookings={bookingsData} />
+              </ProfileTabContent>
             </TabsContent>
             
             <TabsContent value="budget" className="mt-0">
-              <Budget 
-                totalBudget={budgetData.totalBudget}
-                totalSpent={budgetData.totalSpent}
-                currency={budgetData.currency}
-                categories={budgetData.categories}
-                tripName={budgetData.tripName}
-                tripId={budgetData.tripId}
-              />
+              <ProfileTabContent active={selectedTab === "budget"}>
+                <Budget 
+                  totalBudget={budgetData.totalBudget}
+                  totalSpent={budgetData.totalSpent}
+                  currency={budgetData.currency}
+                  categories={budgetData.categories}
+                  tripName={budgetData.tripName}
+                  tripId={budgetData.tripId}
+                />
+              </ProfileTabContent>
             </TabsContent>
             
             <TabsContent value="places" className="mt-0">
-              <PlacesVisited places={placesVisitedData} />
+              <ProfileTabContent active={selectedTab === "places"}>
+                <PlacesVisited places={placesVisitedData} />
+              </ProfileTabContent>
             </TabsContent>
             
             <TabsContent value="settings" className="mt-0">
-              <UserSettings userData={user} />
+              <ProfileTabContent active={selectedTab === "settings"}>
+                <UserSettings userData={user} />
+              </ProfileTabContent>
             </TabsContent>
           </Tabs>
         </div>
