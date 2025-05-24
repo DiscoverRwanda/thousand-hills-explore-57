@@ -25,7 +25,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, address, coordinates, 
       <div className="aspect-video bg-gray-200 flex items-center justify-center">
         <div className="text-center px-4">
           <MapPin className="mx-auto h-10 w-10 text-rwanda-green mb-2" />
-          <p className="font-medium">Map integration would go here</p>
+          <p className="font-medium">Map integration</p>
           <p className="text-sm text-gray-500">Coordinates: {coordinates.latitude}, {coordinates.longitude}</p>
         </div>
       </div>
