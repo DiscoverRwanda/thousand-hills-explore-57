@@ -43,44 +43,44 @@ const App = () => (
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
-              {/* <Route path="/about" element={<About />} />
-              <Route path="/gallery" element={<Gallery />} /> */}
+              {/* <Route path="/about" element={<About />} /> */}
+              <Route path="/gallery" element={<Gallery />} />
               
               {/* Attractions */}
               <Route path="/attractions" element={<Attractions />} />
               <Route path="/attractions/:id" element={<AttractionDetails />} />
               
               {/* Events */}
-              {/* <Route path="/events" element={<Events />} />
+              <Route path="/events" element={<Events />} />
               <Route path="/events/:id" element={<EventDetails />} />
-              <Route path="/events/calendar" element={<EventsCalendar />} /> */}
+              <Route path="/events/calendar" element={<EventsCalendar />} />
               
               {/* Dining */}
-              {/* <Route path="/dining" element={<Dining />} />
-              <Route path="/dining/:id" element={<DiningDetails />} /> */}
+              <Route path="/dining" element={<Dining />} />
+              <Route path="/dining/:id" element={<DiningDetails />} />
               
               {/* Places to Stay */}
-              {/* <Route path="/stay" element={<Stay />} />
-              <Route path="/stay/:id" element={<StayDetails />} /> */}
+              <Route path="/stay" element={<Stay />} />
+              <Route path="/stay/:id" element={<StayDetails />} />
               
               {/* Plan Your Visit */}
-              {/* <Route path="/plan" element={<Plan />} />
+              <Route path="/plan" element={<Plan />} />
               <Route path="/plan/itinerary-builder" element={<ItineraryBuilder />} />
               <Route path="/plan/itinerary/:id" element={<ItineraryDetails />} />
-              <Route path="/plan/travel-tips" element={<TravelTips />} /> */}
+              <Route path="/plan/travel-tips" element={<TravelTips />} />
               
               {/* Blog */}
-              {/* <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPost />} /> */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
               
               {/* Contact */}
-              {/* <Route path="/contact" element={<Contact />} /> */}
+              <Route path="/contact" element={<Contact />} />
               
               {/* Auth Routes */}
-              {/* <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/profile" element={<Profile />} /> */}
+              <Route path="/profile" element={<Profile />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
